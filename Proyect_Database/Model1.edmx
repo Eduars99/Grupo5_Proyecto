@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TiendaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="IDCliente" />
+          </Key>
+          <Property Name="IDCliente" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="IDEmpleado" />
+          </Key>
+          <Property Name="IDEmpleado" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Grupo5">
+          <Key>
+            <PropertyRef Name="IDGrupo5" />
+          </Key>
+          <Property Name="IDGrupo5" Type="int" Nullable="false" />
+          <Property Name="PruebaNombre" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="Correito" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="IDProducto" />
+          </Key>
+          <Property Name="IDProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="255" />
+          <Property Name="Precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Stock" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="National_ID" Type="varchar" MaxLength="50" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Role" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="TiendaModelStoreContainer">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grupo5" EntityType="Self.Grupo5" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TiendaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="IDEmpleado" />
+          </Key>
+          <Property Name="IDEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="TiendaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Empleadoes" EntityType="Self.Empleado" />
+          <EntitySet Name="Clientes" EntityType="TiendaModel.Cliente" />
+          <EntitySet Name="Grupo5" EntityType="TiendaModel.Grupo5" />
+          <EntitySet Name="Productos" EntityType="TiendaModel.Producto" />
+          <EntitySet Name="Usuarios" EntityType="TiendaModel.Usuario" />
+        </EntityContainer>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="IDCliente" />
+          </Key>
+          <Property Name="IDCliente" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Grupo5">
+          <Key>
+            <PropertyRef Name="IDGrupo5" />
+          </Key>
+          <Property Name="IDGrupo5" Type="Int32" Nullable="false" />
+          <Property Name="PruebaNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="IDProducto" />
+          </Key>
+          <Property Name="IDProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="National_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TiendaModelStoreContainer" CdmEntityContainer="TiendaEntities">
+          <EntitySetMapping Name="Empleadoes">
+            <EntityTypeMapping TypeName="TiendaModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="IDEmpleado" ColumnName="IDEmpleado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="TiendaModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grupo5">
+            <EntityTypeMapping TypeName="TiendaModel.Grupo5">
+              <MappingFragment StoreEntitySet="Grupo5">
+                <ScalarProperty Name="Correito" ColumnName="Correito" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="PruebaNombre" ColumnName="PruebaNombre" />
+                <ScalarProperty Name="IDGrupo5" ColumnName="IDGrupo5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="TiendaModel.Producto">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IDProducto" ColumnName="IDProducto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="TiendaModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="National_ID" ColumnName="National_ID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
